@@ -12,6 +12,10 @@ import {
 } from '@expo-google-fonts/inter';
 import { Text, View } from 'react-native';
 
+import AppRoutes from './src/routes/app.routes';
+import { NavigationContainer } from '@react-navigation/native';
+import { StatusBar } from 'expo-status-bar';
+
 export default function App() {
   const [fontsLoaded] = useFonts({
     Inter_700Bold,
@@ -30,7 +34,10 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Home />
+      <NavigationContainer>
+        <StatusBar style='light' />
+        <AppRoutes />
+      </NavigationContainer>
     </ThemeProvider>
   );
 }
