@@ -64,4 +64,35 @@ export const DealPrice = styled.Text`
   font-size: 16px;
 `;
 
-export const DealDescription = styled.Text``;
+export const DealDescription = styled.Text`
+  color: ${({ theme }) => theme.colors.typography};
+  font-family: ${({ theme }) => theme.fonts.semibold};
+`;
+
+export const DealInfo = styled.View`
+  flex-direction: row;
+  align-items: center;
+
+  background: ${({ theme }) => theme.colors.background_dark};
+
+  border-radius: 12px;
+  overflow: hidden;
+`;
+
+export const DealButton = styled.View`
+  padding: 10px 18px;
+  background: ${({ theme }) => theme.colors.primary};
+  border-radius: 12px;
+`;
+
+export const DealButtonText = styled.Text`
+  color: ${({ theme }) => theme.colors.background};
+  font-family: ${({ theme }) => theme.fonts.semibold};
+`;
+
+export const DealDate = styled.View``;
+
+export const DealDateText = styled.Text`
+  color: ${({ theme }) => theme.colors.typography};
+  font-family: ${({ theme }) => theme.fonts.semibold};
+`;

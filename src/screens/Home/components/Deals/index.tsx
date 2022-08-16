@@ -19,6 +19,18 @@ export function Deals() {
             <S.DealPrice>6.3 $</S.DealPrice>
           </S.DealHeader>
           <S.DealDescription>Choose movie and drink.</S.DealDescription>
+
+          <S.DealInfo>
+            <S.DealButton>
+              <S.DealButtonText>Get</S.DealButtonText>
+            </S.DealButton>
+
+            <S.DealDate>
+              <S.DealDateText>
+                26, Nov 2021
+              </S.DealDateText>
+            </S.DealDate>
+          </S.DealInfo>
         </S.WrapperData>
       </S.WrapperDeal>
     </S.Container>
