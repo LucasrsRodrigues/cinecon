@@ -14,10 +14,6 @@ export const Title = styled.Text`
   text-transform: uppercase;
 `;
 
-// Header
-
-
-
 // Section
 export const Section = styled.View``;
 
@@ -28,5 +24,3 @@ export const TitleSection = styled.Text`
 
   padding: 24px;
 `;
-
-// OptionSection

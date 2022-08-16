@@ -1,11 +1,11 @@
 import React from 'react';
 
-import * as S from './styles';
-
-
-import { Carrossel } from './components/Carrossel';
 import { HomeHeader } from './components/HomeHeader';
 import { Header } from '../../global/components/Header';
+
+import * as S from './styles';
+import { Features } from './components/Features';
+import { Deals } from './components/Deals';
 
 export function Home() {
   return (
@@ -13,7 +13,8 @@ export function Home() {
       <Header />
       <S.Container>
         <HomeHeader />
-
+        <Features />
+        <Deals />
       </S.Container>
     </S.Safe>
   );
