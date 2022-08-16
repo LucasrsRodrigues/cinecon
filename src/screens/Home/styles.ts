@@ -16,23 +16,6 @@ export const Title = styled.Text`
 
 // Header
 
-export const Header = styled.View`
-  width: 100%;
-  padding: 18px 25px;
-
-  flex-direction: row;
-
-  justify-content: space-between;
-
-`;
-
-export const WrapperOptionsMenu = styled.View`
-  flex-direction: row;
-`;
-
-export const OptionMenu = styled.TouchableOpacity`
-  margin-left: 17px;
-`;
 
 
 // Section
@@ -45,3 +28,5 @@ export const TitleSection = styled.Text`
 
   padding: 24px;
 `;
+
+// OptionSection

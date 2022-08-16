@@ -2,36 +2,18 @@ import React from 'react';
 
 import * as S from './styles';
 
-import LogoSvg from '../../assets/Logo.svg';
 
-import AccessibilitySVG from '../../assets/icons/line/Accessibility.svg';
-import BuySVG from '../../assets/icons/line/Buy.svg';
-import { Carrossel } from '../../components/Carrossel';
+import { Carrossel } from './components/Carrossel';
+import { HomeHeader } from './components/HomeHeader';
+import { Header } from '../../global/components/Header';
 
 export function Home() {
   return (
     <S.Safe>
-      <S.Header>
-        <LogoSvg />
-
-        <S.WrapperOptionsMenu>
-          <S.OptionMenu>
-            <AccessibilitySVG />
-          </S.OptionMenu>
-
-          <S.OptionMenu>
-            <BuySVG />
-          </S.OptionMenu>
-        </S.WrapperOptionsMenu>
-      </S.Header>
-
+      <Header />
       <S.Container>
-        <Carrossel />
+        <HomeHeader />
 
-        {/* <S.Section>
-          <S.TitleSection>Features</S.TitleSection>
-
-        </S.Section> */}
       </S.Container>
     </S.Safe>
   );
