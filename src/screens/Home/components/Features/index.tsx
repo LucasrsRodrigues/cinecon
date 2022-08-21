@@ -11,7 +11,7 @@ export function Features() {
     <S.Container>
       <S.Title>Features</S.Title>
 
-      <S.ScrollFeatures horizontal>
+      <S.ScrollFeatures horizontal showsHorizontalScrollIndicator={false} >
         <S.FeaturesCard>
           <VolumeDown />
           <S.CardDetail>
@@ -23,6 +23,20 @@ export function Features() {
           <UserThree />
           <S.CardDetail>
             Limited number of people
+          </S.CardDetail>
+        </S.FeaturesCard>
+
+        <S.FeaturesCard>
+          <SnackClick />
+          <S.CardDetail>
+            Snacks and drinks on click
+          </S.CardDetail>
+        </S.FeaturesCard>
+
+        <S.FeaturesCard>
+          <SnackClick />
+          <S.CardDetail>
+            Snacks and drinks on click
           </S.CardDetail>
         </S.FeaturesCard>
 

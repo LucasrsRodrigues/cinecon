@@ -25,4 +25,37 @@ const commingSoon = [
   },
 ];
 
+const inTheater = [
+  {
+    id: 0,
+    title: '',
+    image: 'https://m.media-amazon.com/images/M/MV5BMjdkZjNjNDItYzc4MC00NTkxLTk1MWEtY2UyZjY5MjUwNDNkXkEyXkFqcGdeQXVyMTA1OTcyNDQ4._V1_.jpg',
+    nota: '7.6'
+  }, 
+  {
+    id: 1,
+    title: '',
+    image: 'https://img.elo7.com.br/product/zoom/2678674/big-poster-filme-marvel-thor-ragnarok-lo02-tamanho-90x60-cm-thor.jpg',
+    nota: '9'
+  }, 
+  {
+    id: 2,
+    title: '',
+    image: 'https://br.jetss.com/wp-content/uploads/2021/04/175995912_1190163664748345_3929128919075632408_n.jpg',
+    nota: ''
+  }, 
+  {
+    id: 3,
+    title: '',
+    image: 'https://i0.wp.com/nerdizmo.uai.com.br/wp-content/uploads/sites/29/2019/08/Todos-os-p%C3%B4steres-de-filmes-da-Marvel-sem-texto-GEEKNESS-1.jpg?fit=683%2C1024',
+    nota: ''
+  }, 
+  {
+    id: 4,
+    title: '',
+    image: 'https://1.bp.blogspot.com/-4yi2M5vIrVE/XmZNt_aVCQI/AAAAAAACDiQ/xXPnpfT3Kyg_fuwAgPIbJZatZYlpkLpAQCLcBGAsYHQ/s1600/natashafinalposter.jpg',
+    nota: ''
+  },
+];
+
 export { commingSoon }

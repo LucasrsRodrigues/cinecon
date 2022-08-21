@@ -2,7 +2,6 @@ import { useFonts } from '@expo-google-fonts/inter';
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import theme from './src/global/styles/theme';
-import { Home } from './src/screens/Home';
 
 import {
   Inter_700Bold,
@@ -24,13 +23,13 @@ export default function App() {
     Inter_400Regular
   });
 
-  if (!fontsLoaded) {
-    return (
-      <View>
-        <Text>Loading...</Text>
-      </View>
-    )
-  }
+  // if (!fontsLoaded) {
+  //   return (
+  //     <View>
+  //       <Text>Loading...</Text>
+  //     </View>
+  //   )
+  // }
 
   return (
     <ThemeProvider theme={theme}>

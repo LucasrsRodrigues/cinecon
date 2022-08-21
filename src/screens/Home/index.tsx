@@ -6,6 +6,7 @@ import { Header } from '../../global/components/Header';
 import * as S from './styles';
 import { Features } from './components/Features';
 import { Deals } from './components/Deals';
+import { Theather } from './components/Theather';
 
 export function Home() {
   return (
@@ -15,6 +16,7 @@ export function Home() {
         <HomeHeader />
         <Features />
         <Deals />
+        <Theather />
       </S.Container>
     </S.Safe>
   );
