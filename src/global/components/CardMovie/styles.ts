@@ -43,9 +43,10 @@ export const WrapperTitle = styled(LinearGradient)`
   align-items: center;
   justify-content: center;
 
-  bottom: 10px;
+  bottom: 0px;
 
   width: 100%;
+  padding: 10px 0;
 
 `;
 

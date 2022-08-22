@@ -1,30 +1,29 @@
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
+import IMovieProps from '../../@types/IMovieProps';
 
 import * as S from './styles';
 
-interface CardFilm {
-  item: {
-    image: string;
-    nota: string;
-    title?: string;
-  }
+interface CardMovieProps {
+  item: IMovieProps;
 }
 
-function CardFilm({ item }: CardFilm) {
+function CardMovie({ item }: CardMovieProps) {
+  const image_path = 'https://image.tmdb.org/t/p/w500';
+
   return(
     <S.Container>
       <TouchableOpacity onPress={() => { }}>
-        <S.CarouselImg source={{ uri: item.image }} />
-        {/* <S.CarouselIcon name="play-circle-outline" size={30} color="#fff" /> */}
+        <S.CarouselImg source={{ uri: `${image_path}${item.poster_path}` }} />
+
         <S.Nota>
-          <S.NotaText>{item.nota}</S.NotaText>
+          <S.NotaText>{item.vote_average}</S.NotaText>
           <S.NotaTextLittle>/10</S.NotaTextLittle>
         </S.Nota>
 
         {item.title && (
           <S.WrapperTitle
-            colors={['rgba(0, 0, 0, 0.24)', 'rgba(0, 0, 0, 1)']}
+            colors={['transparent', 'rgba(0, 0, 0, 0.24)', 'rgba(0, 0, 0, 0.50)', 'rgba(0, 0, 0, 1)']}
           >
             <S.Title>
               {item.title}
@@ -36,4 +35,4 @@ function CardFilm({ item }: CardFilm) {
   );
 }
 
-export { CardFilm }
+export { CardMovie }
