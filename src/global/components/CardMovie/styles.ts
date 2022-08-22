@@ -2,13 +2,23 @@ import styled from 'styled-components/native';
 import Icon from '@expo/vector-icons/MaterialIcons';
 import { LinearGradient } from 'expo-linear-gradient';
 
+interface ContainerProps {
+  width: string;
+  height: string;
+}
+
 export const Container = styled.View`
-  flex: 1;
+  /* flex: 1; */
+  /* position: relative; */
 `;
 
-export const CarouselImg = styled.Image`
-  height: 400px;
-  width: 230px;
+export const CarouselImg = styled.Image<ContainerProps>`
+  /* height: 400px;
+  width: 230px; */
+
+  width: ${(props) => props.width}px;
+  height: ${(props) => props.height}px;
+
   align-self: center;
   border-radius: 12px;
 `;

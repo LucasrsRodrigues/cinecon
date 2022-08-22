@@ -23,3 +23,20 @@ export const ButtonText = styled.Text`
   font-size: 18px;
   color: ${({ theme }) => theme.colors.primary};
 `;
+
+
+export const Body = styled.View`
+  flex-direction: row;
+  padding: 0 25px;
+`;
+
+export const Left = styled.View`
+  flex: 1;
+  background: #94ffa955;
+`;
+
+export const Right = styled.View`
+  flex: 1;
+  background: #cd94ff55;
+`;
+

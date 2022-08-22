@@ -31,7 +31,7 @@ export function Carrossel() {
         layout="default"
         ref={carouselRef}
         data={films}
-        renderItem={({ item }) => <CardMovie item={item} />}
+        renderItem={({ item }) => <CardMovie width={230} height={400} item={item} />}
         sliderWidth={scrennWidth}
         itemWidth={230}
         inactiveSlideOpacity={0.6}
