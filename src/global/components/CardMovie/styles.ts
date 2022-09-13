@@ -8,10 +8,9 @@ interface ContainerProps {
 }
 
 export const Container = styled.View`
-  /* flex: 1; */
-  /* position: relative; */
   border-radius: 12px;
-
+  overflow: hidden;
+  border-radius: 12px;
 `;
 
 export const ContainerShadow = styled.View`

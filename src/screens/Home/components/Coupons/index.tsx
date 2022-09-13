@@ -1,5 +1,4 @@
 import React from 'react';
-import TimeCircle from '../../../../assets/icons/line/TimeCircle.svg';
 import CouponsSvg from '../../../../assets/icons/solid/Coupons.svg';
 import * as S from './styles';
 

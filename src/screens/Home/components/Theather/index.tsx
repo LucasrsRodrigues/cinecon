@@ -33,15 +33,15 @@ function Theather() {
       <S.Body>
         <S.Left>          
           {movies.filter((item, index) => index % 2 === 0).map(movie => (
-            <S.WrapperMovie>
-              <CardMovie key={movie.id} loading={loading} width={157} height={220} item={movie} showFilter={false} />
+            <S.WrapperMovie key={movie.id}>
+              <CardMovie loading={loading} width={157} height={220} item={movie} showFilter={false} />
             </S.WrapperMovie>
           ))}
         </S.Left>
         <S.Right>
           {movies.filter((item, index) => index % 2 === 1).map(movie => (
-            <S.WrapperMovie>
-              <CardMovie key={movie.id} loading={loading} width={157} height={220} item={movie} showFilter={false} />
+            <S.WrapperMovie key={movie.id}>
+              <CardMovie loading={loading} width={157} height={220} item={movie} showFilter={false} />
             </S.WrapperMovie>
           ))}
         </S.Right>

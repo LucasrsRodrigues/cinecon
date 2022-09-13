@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import { useFonts } from '@expo-google-fonts/inter';
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
@@ -14,6 +15,7 @@ import { Text, View } from 'react-native';
 import AppRoutes from './src/routes/app.routes';
 import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
+import { Welcome } from './src/screens/Welcome';
 
 export default function App() {
   const [fontsLoaded] = useFonts({

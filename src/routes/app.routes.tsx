@@ -25,6 +25,7 @@ import VideoSvgSolid from '../assets/icons/solid/Video.svg';
 import { Video } from '../screens/Video';
 import { Ticket } from '../screens/Ticket';
 import { Profile } from '../screens/Profile';
+import AuthRoutes from './auth.routes';
 
 
 export default function AppRoutes() {
@@ -39,7 +40,6 @@ export default function AppRoutes() {
           backgroundColor: theme.colors.background,
           borderTopColor: theme.colors.background
         },
-
       })}
     >
       <Screen
@@ -47,7 +47,7 @@ export default function AppRoutes() {
         component={Home}
         options={{
           tabBarIcon: ({ focused, color }) => !focused ? <HomeSvg /> : <HomeSvgSolid color={color} />,
-        }}
+        }}        
       />
 
       <Screen
@@ -74,8 +74,8 @@ export default function AppRoutes() {
         }}
       />
       <Screen
-        name="Profile"
-        component={Profile}
+        name="AuthRoutes"
+        component={AuthRoutes}
         options={{
           tabBarIcon: ({ focused, color }) => !focused ? <ProfileSvg /> : <ProfileSvgSolid color={color} />,
         }}
