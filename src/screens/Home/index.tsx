@@ -7,6 +7,7 @@ import * as S from './styles';
 import { Features } from './components/Features';
 import { Deals } from './components/Deals';
 import { Theather } from './components/Theather';
+import { Coupons } from './components/Coupons';
 
 export function Home() {
   return (
@@ -17,6 +18,7 @@ export function Home() {
         <Features />
         <Deals />
         <Theather />
+        <Coupons />
       </S.Container>
     </S.Safe>
   );

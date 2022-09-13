@@ -23,13 +23,13 @@ export default function App() {
     Inter_400Regular
   });
 
-  // if (!fontsLoaded) {
-  //   return (
-  //     <View>
-  //       <Text>Loading...</Text>
-  //     </View>
-  //   )
-  // }
+  if (!fontsLoaded) {
+    return (
+      <View>
+        <Text>Loading...</Text>
+      </View>
+    )
+  }
 
   return (
     <ThemeProvider theme={theme}>

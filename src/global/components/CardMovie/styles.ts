@@ -10,9 +10,16 @@ interface ContainerProps {
 export const Container = styled.View`
   /* flex: 1; */
   /* position: relative; */
+  border-radius: 12px;
+
 `;
 
-export const CarouselImg = styled.Image<ContainerProps>`
+export const ContainerShadow = styled.View`
+  background: red;
+  
+`;
+
+export const CarouselImg = styled.ImageBackground<ContainerProps>`
   /* height: 400px;
   width: 230px; */
 
@@ -20,14 +27,14 @@ export const CarouselImg = styled.Image<ContainerProps>`
   height: ${(props) => props.height}px;
 
   align-self: center;
-  border-radius: 12px;
 `;
+
 export const CarouselIcon = styled(Icon)``;
 
 export const Nota = styled.View`
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: 5px;
+  right: 10px;
 
   background: ${({ theme }) => theme.colors.primary};
   padding: 16px 12px;

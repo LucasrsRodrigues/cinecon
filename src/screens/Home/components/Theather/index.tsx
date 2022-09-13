@@ -8,16 +8,21 @@ import * as S from './styles';
 
 function Theather() {
   const [movies, setMovies] = useState<IMovieProps[]>([]);
+  const [loading, setLoading] = useState(false);
+
 
   useEffect(() => {
     (async () => {
-      const listMovies = await tmdb.get(`/now_playing?api_key=${TMDB_KEY}&language=en-US&page=1`);
+      setLoading(true);
+      
+      const listMovies = await tmdb.get(`/now_playing?api_key=${TMDB_KEY}&language=pt-BR&page=1`);
 
-      setMovies(listMovies.data.results);
+      setMovies(listMovies.data.results.slice(0, 6));
+      setLoading(false);
     })();
   }, []);
 
-  return(
+  return (
     <S.Container>
       <S.Header>
         <S.Title>In Theater</S.Title>
@@ -26,13 +31,19 @@ function Theather() {
         </S.Button>
       </S.Header>
       <S.Body>
-        {/* {movies.map(movie => <CardMovie item={movie} showFilter={false} />)} */}
-        <S.Left>
-          <CardMovie width={157} height={220} item={movies[0]} showFilter={false} />
-
+        <S.Left>          
+          {movies.filter((item, index) => index % 2 === 0).map(movie => (
+            <S.WrapperMovie>
+              <CardMovie key={movie.id} loading={loading} width={157} height={220} item={movie} showFilter={false} />
+            </S.WrapperMovie>
+          ))}
         </S.Left>
         <S.Right>
-
+          {movies.filter((item, index) => index % 2 === 1).map(movie => (
+            <S.WrapperMovie>
+              <CardMovie key={movie.id} loading={loading} width={157} height={220} item={movie} showFilter={false} />
+            </S.WrapperMovie>
+          ))}
         </S.Right>
       </S.Body>
     </S.Container>

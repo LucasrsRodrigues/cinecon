@@ -1,25 +1,25 @@
 import React from 'react';
 import TimeCircle from '../../../../assets/icons/line/TimeCircle.svg';
-import Deal from '../../../../assets/icons/solid/Deal.svg';
+import CouponsSvg from '../../../../assets/icons/solid/Coupons.svg';
 import * as S from './styles';
 
-export function Deals() {
+export function Coupons() {
   return (
     <S.Container>
-      <S.Title>Deals</S.Title>
+      <S.Title>Coupons</S.Title>
 
       <S.WrapperDeal>
         <S.WrapperIcon>
-          <Deal />
+          <CouponsSvg />
         </S.WrapperIcon>
 
         <S.WrapperData>
           <S.DealHeader>
-            <S.DealTitle>Single</S.DealTitle>
-            <S.DealPrice>6.3 $</S.DealPrice>
+            <S.DealTitle>Free Popcorn</S.DealTitle>
+            <S.DealPrice>Free</S.DealPrice>
           </S.DealHeader>
 
-          <S.DealDescription>Choose movie and drink.</S.DealDescription>
+          <S.DealDescription>Get your coupon.</S.DealDescription>
 
           <S.DealInfo>
             <S.DealButton>

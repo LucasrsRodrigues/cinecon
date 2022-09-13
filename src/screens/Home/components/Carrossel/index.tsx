@@ -14,16 +14,17 @@ const { width: scrennWidth } = Dimensions.get('window');
 export function Carrossel() {
   const carouselRef = useRef(null);
   const [films, setFilms] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     (async () => {
+      setLoading(true);
       const listMovies = await tmdb.get(`/upcoming?api_key=${TMDB_KEY}&language=pt-BR&page=1`);
 
       setFilms(listMovies.data.results);
-
+      setLoading(false);
     })();
   }, []);
-  
 
   return (
     <S.Container>
@@ -31,7 +32,7 @@ export function Carrossel() {
         layout="default"
         ref={carouselRef}
         data={films}
-        renderItem={({ item }) => <CardMovie width={230} height={400} item={item} />}
+        renderItem={({ item }) => <CardMovie loading={loading} width={230} height={400} item={item} />}
         sliderWidth={scrennWidth}
         itemWidth={230}
         inactiveSlideOpacity={0.6}
