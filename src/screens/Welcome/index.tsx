@@ -6,8 +6,12 @@ import GoogleSvg from '../../assets/social/Google.svg';
 import FacebookSvg from '../../assets/social/Facebook.svg';
 
 import * as S from './styles';
+import { useNavigation } from '@react-navigation/native';
 
 export function Welcome() {
+
+  const { navigate } = useNavigation();
+
   return (
     <S.Safe>
       <Header />
@@ -19,7 +23,7 @@ export function Welcome() {
           <LoginImage />        
         </S.WrapperImage>
 
-        <S.Button>
+        <S.Button onPress={() => navigate('Register')}>
           <S.ButtonText>Register</S.ButtonText>
         </S.Button>
 
