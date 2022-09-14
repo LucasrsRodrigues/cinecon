@@ -10,6 +10,9 @@ export const TitleSection = styled.Text`
   font-family: ${({ theme }) => theme.fonts.semibold};
   color: ${({ theme }) => theme.colors.typography_light};
   font-size: ${RFValue(18)}px;
+
+  margin-top: 16px;
+  padding: 0 24px;
 `;
 
 export const FormPersonal = styled.View`
@@ -24,6 +27,11 @@ export const UploadPhoto = styled.View`
   border-radius: ${RFPercentage(50)}px;
 `;
 
+export const WrapperInput = styled.View`
+  width: 100%;
+  margin: 16px 0;
+`;
+
 export const Input = styled(TextInput)`
   width: 100%;
   height: ${RFValue(48)}px;
@@ -32,4 +40,17 @@ export const Input = styled(TextInput)`
   padding: 0 14px;
 
   margin-bottom: ${RFValue(8)}px;
+`;
+
+export const NextButton = styled.TouchableOpacity`
+  width: 100%;
+  background: ${({ theme }) => theme.colors.primary};
+  padding: 15px;
+  border-radius: 14px;
+`;
+
+export const NextButtonText = styled.Text`
+  font-family: ${({ theme }) => theme.fonts.semibold};
+  font-size: ${RFValue(14)}px;
+  text-align: center;
 `;

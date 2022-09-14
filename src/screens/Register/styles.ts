@@ -17,6 +17,7 @@ export const Steps = styled.View`
   align-items: center;
 `;
 
+
 interface StepsProps {
   active?: boolean;
 }
