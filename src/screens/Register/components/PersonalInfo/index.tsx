@@ -1,5 +1,7 @@
 import React from 'react';
 import { useTheme } from 'styled-components';
+import { Input } from '../../../../global/components/Input';
+import { MyInput } from '../../../../global/components/MyInput';
 
 import * as S from './styles';
 
@@ -18,11 +20,14 @@ function PersonalInfo({ change }: PersonalInfoProps) {
         <S.UploadPhoto></S.UploadPhoto>
 
         <S.WrapperInput>
-          <S.Input placeholder="First Name" placeholderTextColor={theme.colors.typography} />
-          <S.Input placeholder="Last Name" placeholderTextColor={theme.colors.typography} />
+          <MyInput />
+
+          {/* <S.Input placeholder="First Name" placeholderTextColor={theme.colors.typography} /> */}
+          {/* <S.Input placeholder="Last Name" placeholderTextColor={theme.colors.typography} />
           <S.Input placeholder="Email" placeholderTextColor={theme.colors.typography} />
           <S.Input placeholder="Phone" placeholderTextColor={theme.colors.typography} />
-          <S.Input placeholder="Password" placeholderTextColor={theme.colors.typography} />
+          <S.Input placeholder="Password" placeholderTextColor={theme.colors.typography} /> */}
+        
         </S.WrapperInput>
 
         

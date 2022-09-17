@@ -2,7 +2,7 @@ import { TextInput } from 'react-native-gesture-handler';
 import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 import styled from 'styled-components/native';
 
-export const Container = styled.View`
+export const Container = styled.KeyboardAvoidingView`
   flex: 1;
 `;
 
@@ -27,20 +27,17 @@ export const UploadPhoto = styled.View`
   border-radius: ${RFPercentage(50)}px;
 `;
 
+interface InputsProps {
+  focus: boolean;
+}
+
 export const WrapperInput = styled.View`
   width: 100%;
   margin: 16px 0;
 `;
 
-export const Input = styled(TextInput)`
-  width: 100%;
-  height: ${RFValue(48)}px;
-  border-radius: 8px;
-  border: 2px solid ${({ theme }) => theme.colors.background_light};
-  padding: 0 14px;
 
-  margin-bottom: ${RFValue(8)}px;
-`;
+
 
 export const NextButton = styled.TouchableOpacity`
   width: 100%;
@@ -54,3 +51,5 @@ export const NextButtonText = styled.Text`
   font-size: ${RFValue(14)}px;
   text-align: center;
 `;
+
+
