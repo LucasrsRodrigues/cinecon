@@ -20,14 +20,11 @@ function PersonalInfo({ change }: PersonalInfoProps) {
         <S.UploadPhoto></S.UploadPhoto>
 
         <S.WrapperInput>
-          <MyInput />
-
-          {/* <S.Input placeholder="First Name" placeholderTextColor={theme.colors.typography} /> */}
-          {/* <S.Input placeholder="Last Name" placeholderTextColor={theme.colors.typography} />
-          <S.Input placeholder="Email" placeholderTextColor={theme.colors.typography} />
-          <S.Input placeholder="Phone" placeholderTextColor={theme.colors.typography} />
-          <S.Input placeholder="Password" placeholderTextColor={theme.colors.typography} /> */}
-        
+          <MyInput label="Primeiro nome" />
+          <MyInput label="Sobrenome" />
+          <MyInput label="E-mail" />
+          <MyInput label="Telefone" />
+          <MyInput label="Senha" />
         </S.WrapperInput>
 
         

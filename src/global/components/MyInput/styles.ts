@@ -1,9 +1,11 @@
+import { TextStyle } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
+import Animated, { AnimatedStyleProp } from 'react-native-reanimated';
 import { RFValue } from 'react-native-responsive-fontsize';
 import styled, { css } from 'styled-components/native';
 
 
-interface MyInputProps {
+interface MyInputProps extends TextStyle  {
   focus: boolean;
   type: 'empty' | 'filled' | 'error' | 'disabled';
 }
@@ -13,7 +15,7 @@ interface MyInputProps {
 export const InputSingle = styled.View<MyInputProps>`
   width: 100%;
   height: ${RFValue(48)}px;
-  margin: 30px 0;
+  margin: 8px 0;
   position: relative;
 
   border: ${RFValue(2)}px solid ${({ theme }) => theme.colors.background_light};
@@ -35,24 +37,22 @@ export const Input = styled(TextInput)`
 
   font-family: ${({ theme }) => theme.fonts.regular};
 
+  /* background: red; */
+
 `;
 
-export const InputLabel = styled.Text<MyInputProps>`
+export const InputLabel = styled(Animated.Text)<MyInputProps>`
   position: absolute;
   left: ${RFValue(16)}px;
   top: ${RFValue(12.8)}px;
-  padding: 0 8px;
-  color: ${({ theme }) => theme.colors.typography};
+  padding: 0 14px;
+  color: ${({ theme }) => theme.colors.typography}60;
   font-size: ${RFValue(16)}px;
   transition: all ease-in 200ms;
   font-family: ${({ theme }) => theme.fonts.regular};
 
   ${({ focus }) => focus && css`
-    top: 3px;
-    font-size: ${RFValue(12.8)}px;
-    left: 12.8px;
-
-    color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.primary}; 
   `};
 
   background: ${({ theme }) => theme.colors.background};
