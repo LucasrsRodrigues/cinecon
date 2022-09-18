@@ -15,7 +15,7 @@ function Theather() {
     (async () => {
       setLoading(true);
       
-      const listMovies = await tmdb.get(`/now_playing?api_key=${TMDB_KEY}&language=pt-BR&page=1`);
+      const listMovies = await tmdb.get(`movie/now_playing?api_key=${TMDB_KEY}&language=pt-BR&page=1`);
 
       setMovies(listMovies.data.results.slice(0, 6));
       setLoading(false);

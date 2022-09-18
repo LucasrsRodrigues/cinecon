@@ -19,7 +19,7 @@ export function Carrossel() {
   useEffect(() => {
     (async () => {
       setLoading(true);
-      const listMovies = await tmdb.get(`/upcoming?api_key=${TMDB_KEY}&language=pt-BR&page=1`);
+      const listMovies = await tmdb.get(`movie/upcoming?api_key=${TMDB_KEY}&language=pt-BR&page=1`);
 
       setFilms(listMovies.data.results);
       setLoading(false);
