@@ -34,7 +34,6 @@ export const Method = styled.TouchableOpacity`
 
   border-color: ${({ theme }) => theme.colors.primary};
 
-  margin-right: 16px;
 `;
 
 export const MethodTitle = styled.Text`

@@ -1,40 +1,32 @@
 import React from 'react';
 import { Header } from '../../global/components/Header';
-import LoginImage from '../../assets/icons/solid/LoginImage.svg';
+import { MyButton } from '../../global/components/MyButton';
+import { MyInput } from '../../global/components/MyInput';
 
 import GoogleSvg from '../../assets/social/Google.svg';
 import FacebookSvg from '../../assets/social/Facebook.svg';
 
 import * as S from './styles';
-import { useNavigation } from '@react-navigation/native';
 
-export function Welcome() {
-
-  const { navigate } = useNavigation();
-
-  return (
+function Login() {
+  return(
     <S.Safe>
-      <Header />
+      <Header title="Log In" />
 
       <S.Container>
-        <S.Title>Welcome</S.Title>
+        <S.ProfilePicture></S.ProfilePicture>
 
-        <S.WrapperImage>
-          <LoginImage />        
-        </S.WrapperImage>
+        <S.WrapperInputs>
+          <MyInput label='Email' />
+          <MyInput label='Senha' />
+        </S.WrapperInputs>
 
-        <S.Button onPress={() => navigate('Register')}>
-          <S.ButtonText>Register</S.ButtonText>
-        </S.Button>
-
-        <S.Button onPress={() => navigate('Login')} themeColor="dark">
-          <S.ButtonText themeColor="dark">Log In</S.ButtonText>
-        </S.Button>
+        <MyButton text="Log In" />
 
         <S.Lorem>
-            or login with
+          or login with
         </S.Lorem>
-        
+
         <S.MediaButtons>
           <S.MediaButton>
             <GoogleSvg />
@@ -46,7 +38,17 @@ export function Welcome() {
             <S.MediaButtonText>Facebook</S.MediaButtonText>
           </S.MediaButton>
         </S.MediaButtons>
+
+        <S.Lorem>
+          Don't have an account?
+          {' '}
+          <S.Link>
+            Register
+          </S.Link>
+        </S.Lorem>
       </S.Container>
     </S.Safe>
   );
 }
+
+export { Login }
