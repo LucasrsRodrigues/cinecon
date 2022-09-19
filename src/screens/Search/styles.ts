@@ -1,8 +1,8 @@
 import styled from "styled-components/native";
 
-export const Container = styled.View`
-  justify-content: center;
-  align-items: center;
+export const Container = styled.ScrollView`
+  /* justify-content: center; 
+  align-items: center;*/
   padding: 0 24px;
 `;
 
@@ -47,4 +47,24 @@ export const WrapperSelects = styled.View`
   flex-direction: row;
   justify-content: space-between;
   margin-top: 8px;
+`;
+
+
+export const Body = styled.View`
+  flex-direction: row;
+
+  margin-top: 15px;
+`;
+
+export const Left = styled.View`
+  flex: 1;
+`;
+
+export const Right = styled.View`
+  flex: 1;
+`;
+
+export const WrapperMovie = styled.View`
+  /* background: blue; */
+  margin-bottom: 15px;
 `;

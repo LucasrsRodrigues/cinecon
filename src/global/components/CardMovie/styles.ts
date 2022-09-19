@@ -10,7 +10,6 @@ interface ContainerProps {
 export const Container = styled.View`
   border-radius: 12px;
   overflow: hidden;
-  border-radius: 12px;
 `;
 
 export const ContainerShadow = styled.View`
