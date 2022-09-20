@@ -1,6 +1,6 @@
 import styled from "styled-components/native";
 
-export const Container = styled.ScrollView`
+export const Container = styled.View`
   /* justify-content: center; 
   align-items: center;*/
   padding: 0 24px;
@@ -51,9 +51,8 @@ export const WrapperSelects = styled.View`
 
 
 export const Body = styled.View`
-  flex-direction: row;
-
   margin-top: 15px;
+  
 `;
 
 export const Left = styled.View`

@@ -1,15 +1,35 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Header } from '../../global/components/Header';
-import theme from '../../global/styles/theme';
+import { MyInput } from '../../global/components/MyInput';
 import { Octicons, Entypo } from '@expo/vector-icons';
-import SelectList from 'react-native-dropdown-select-list';
-
 import * as S from './styles';
+import { useTheme } from 'styled-components';
+import SelectList from 'react-native-dropdown-select-list';
 import tmdb from '../../global/services/tmdb';
 import { TMDB_KEY } from '../../global/keys/env';
-import { ActivityIndicator, FlatList, Text, View } from 'react-native';
+import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 import { CardMovie } from '../../global/components/CardMovie';
-import { RFValue } from 'react-native-responsive-fontsize';
+import { ActivityIndicator, Text, View } from 'react-native';
+import { FlatList } from 'react-native-gesture-handler';
+import { useFocusEffect } from '@react-navigation/native';
+
+
+interface MovieProps {
+  poster_path: string;
+  adult: boolean;
+  overview: string;
+  release_date: string;
+  genre_ids: Array<number>;
+  id: number,
+  original_title: string;
+  original_language: string;
+  title: string;
+  backdrop_path: string;
+  popularity: number;
+  vote_count: number;
+  video: boolean;
+  vote_average: number;
+}
 
 const rating = [
   {
@@ -58,58 +78,61 @@ const rating = [
   }
 ];
 
-
 export function Search() {
-  const [searchMovie, setSearchMovie] = useState('Slime');
-  const [movies, setMovies] = useState([]);
-  const [page, setPage] = useState(1);
-  const [loading, setLoading] = useState(false);
-  const [ratingSearch, setRatingSearch] = useState('');
+  const [selected, setSelected] = useState('');
+  const [searchMovie, setSearchMovie] = useState('');
   const [genres, setGenred] = useState([]);
 
-  useEffect(() => {
-    clearStates();
+  const [movies, setMovies] = useState<MovieProps[]>([]);
+  const [ratingSearch, setRatingSearch] = useState('');
 
-    const getMovies = async () => {
-      const params = searchMovie.split(' ').join('+');
-      const response = await tmdb.get(`/search/movie?api_key=${TMDB_KEY}&language=pt-BR&query=${params}&total_results=5&page=${page}`)
-      setMovies(response.data.results);
-    }
+  const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(false);
 
-    getMovies();
-  }, []);
+  const theme = useTheme();
 
   function clearStates() {
     setMovies([]);
     setPage(1);
     setLoading(false);
     setSearchMovie('');
-    // getGenres();
+    getGenres();
   }
 
+  async function getGenres() {
+    const response = await tmdb.get(`/genre/movie/list?api_key=${TMDB_KEY}&language=pt-BR`);
 
-  const SearchMovieData = async () => {
-    const params = searchMovie.split(' ').join('+');
-    const response = await tmdb.get(`/search/movie?api_key=${TMDB_KEY}&language=pt-BR&query=${params}&total_results=5&page=${page}`)
-    setPage(page + 1);
-    setMovies(response.data.results);
+    let newArray = response.data.genres.map((genre) => {
+      return { key: genre.id, value: genre.name }
+    });
+
+    setGenred(newArray);
   }
 
-  async function InfiniteScroll() {
+  async function findMovie() {
     if (loading) {
       return;
     }
+
     setLoading(true);
-    setPage(page + 1);
+
     const params = searchMovie.split(' ').join('+');
-    // console.log(`/search/movie?api_key=${TMDB_KEY}&language=pt-BR&query=${params}&total_results=5&page=${page}`);
     const response = await tmdb.get(`/search/movie?api_key=${TMDB_KEY}&language=pt-BR&query=${params}&total_results=5&page=${page}`);
     setLoading(false);
+    setPage(page + 1);
 
-    // console.log(response.data.total_pages);
     setMovies([...movies, ...response.data.results]);
   }
 
+  const FilterCategories = useCallback((value: number) => {
+    const filtered = movies.filter(movie => movie.genre_ids.includes(value));
+
+    setMovies(filtered);
+  }, [movies]);
+
+  useFocusEffect(useCallback(() => {
+    clearStates();
+  }, []));
 
   return (
     <S.Safe>
@@ -121,9 +144,9 @@ export function Search() {
             <S.SearchInput
               placeholder="Search"
               placeholderTextColor={`${theme.colors.typography}60`}
+              onSubmitEditing={() => { clearStates(); findMovie(); }}
               value={searchMovie}
               onChangeText={(event) => setSearchMovie(event)}
-              onSubmitEditing={SearchMovieData}
             />
             <Octicons
               style={{ alignSelf: 'center' }}
@@ -208,7 +231,11 @@ export function Search() {
             />
           </S.WrapperSelects>
         </S.Form>
+
+        {/* Inifnite Scroll */}
+
         <S.Body>
+
           <FlatList
             data={movies}
             style={{ marginBottom: RFValue(250) }}
@@ -216,19 +243,21 @@ export function Search() {
             numColumns={2}
             renderItem={({ item }) => <CardMovie loading={false} width={157} height={220} item={item} showFilter={false} />}
             columnWrapperStyle={{ justifyContent: 'space-between', marginBottom: 15 }}
-            onEndReached={InfiniteScroll}
+            onEndReached={findMovie}
             onEndReachedThreshold={0.1}
             ListFooterComponent={<FooterList load={loading} />}
             showsVerticalScrollIndicator={false}
           />
+
         </S.Body>
 
-
-
+        {/* Inifnite Scroll */}
       </S.Container>
     </S.Safe>
   );
 }
+
+
 
 function FooterList({ load }) {
   if (!load) {
